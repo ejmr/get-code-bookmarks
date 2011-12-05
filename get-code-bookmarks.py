@@ -47,6 +47,15 @@ search_terms = [
     "ruby",
     "javascript",
     "node",
+    "assembly",
+    "llvm",
+    "clang",
+    "x86",
+    "opengl",
+    "directx",
+    "sdl",
+    "jvm",
+    "sql",
 ]
 
 def build_search_query():
