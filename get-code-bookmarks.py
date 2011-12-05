@@ -71,8 +71,7 @@ if __name__ == "__main__":
         sys.exit("Missing required argument: Path to places.sqlite file");
 
     database = sqlite3.connect(sys.argv[1])
-    cursor = database.cursor()
-    cursor.execute(build_search_query())
+    results = database.cursor().execute(build_search_query())
 
-    for row in cursor:
+    for row in results:
         print("{0}\n\t{1}\n".format(row[0], row[1]))
