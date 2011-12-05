@@ -44,6 +44,9 @@ search_terms = [
     "haskell",
     "erlang",
     "clojure",
+    "ruby",
+    "javascript",
+    "node",
 ]
 
 def build_search_query():
