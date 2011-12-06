@@ -32,6 +32,8 @@ This code is Public Domain.
 import sys
 import sqlite3
 
+from operator import itemgetter
+
 # This is a list of terms we search for in bookmark titles and URLs to
 # try and find relevant links to share.
 search_terms = [
@@ -82,5 +84,5 @@ if __name__ == "__main__":
     database = sqlite3.connect(sys.argv[1])
     results = database.cursor().execute(build_search_query())
 
-    for row in results:
+    for row in sorted(results, key=itemgetter(0)):
         print("{0}\n\t{1}\n".format(row[0], row[1]))
