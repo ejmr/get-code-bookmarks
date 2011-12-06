@@ -82,7 +82,11 @@ if __name__ == "__main__":
         sys.exit("Missing required argument: Path to places.sqlite file");
 
     database = sqlite3.connect(sys.argv[1])
-    results = database.cursor().execute(build_search_query())
+
+    try:
+        results = database.cursor().execute(build_search_query())
+    except sqlite3.OperationalError:
+        sys.exit("Error: {0} does not look like a valid places.sqlite file".format(sys.argv[1]))
 
     for row in sorted(results, key=itemgetter(0)):
         print("{0}\n\t{1}\n".format(row[0], row[1]))
