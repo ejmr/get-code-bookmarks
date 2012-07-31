@@ -39,6 +39,7 @@ from operator import itemgetter
 # try and find relevant links to share.
 search_terms = [
     "6502",
+    "api",
     "arm",
     "assembly",
     "c++",
