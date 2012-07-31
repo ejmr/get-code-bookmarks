@@ -38,6 +38,8 @@ from operator import itemgetter
 # This is a list of terms we search for in bookmark titles and URLs to
 # try and find relevant links to share.
 search_terms = [
+    "6502",
+    "arm",
     "assembly",
     "c++",
     "clang",
