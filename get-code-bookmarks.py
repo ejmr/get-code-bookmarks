@@ -24,7 +24,8 @@ by the browser:
     http://people.mozilla.org/~dietrich/places-erd.png
 
 Author: Eric James Michael Ritz
-        Ren@lifesnotsimple.com
+        lobbyjones@gmail.com
+        https://github.com/ejmr/get-code-bookmarks
 
 This code is Public Domain.
 """
