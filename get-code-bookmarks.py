@@ -57,7 +57,8 @@ search_terms = [
     "jvm",
     "llvm",
     "lua",
-    "node",
+    "node"
+    "ocaml",
     "opengl",
     "perl",
     "program",
@@ -65,6 +66,7 @@ search_terms = [
     "ruby",
     "sdl",
     "shader",
+    "standardml",
     "sql",
     "x86",
     "xul",
