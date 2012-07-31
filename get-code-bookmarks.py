@@ -47,6 +47,7 @@ search_terms = [
     "clojure",
     "code",
     "coding",
+    "coffeescript",
     "directx",
     "erlang",
     "glsl",
@@ -59,6 +60,7 @@ search_terms = [
     "lua",
     "node"
     "ocaml",
+    "objective-c",
     "opengl",
     "perl",
     "program",
@@ -66,6 +68,7 @@ search_terms = [
     "ruby",
     "sdl",
     "shader",
+    "smalltalk",
     "standardml",
     "sql",
     "x86",
