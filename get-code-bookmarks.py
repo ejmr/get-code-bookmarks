@@ -39,17 +39,21 @@ from operator import itemgetter
 # try and find relevant links to share.
 search_terms = [
     "assembly",
+    "c++",
     "clang",
     "clojure",
     "code",
     "coding",
     "directx",
     "erlang",
+    "glsl",
     "haskell",
     "java",
     "javascript",
+    "jdk",
     "jvm",
     "llvm",
+    "lua",
     "node",
     "opengl",
     "perl",
@@ -57,8 +61,10 @@ search_terms = [
     "python",
     "ruby",
     "sdl",
+    "shader",
     "sql",
     "x86",
+    "xul",
 ]
 
 def build_search_query():
