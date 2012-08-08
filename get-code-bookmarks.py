@@ -51,6 +51,7 @@ search_terms = [
     "code",
     "coding",
     "coffeescript",
+    "database",
     "directx",
     "erlang",
     "geometry",
