@@ -39,11 +39,13 @@ from operator import itemgetter
 # try and find relevant links to share.
 search_terms = [
     "6502",
+    "algebra",
     "algorithm",
     "api",
     "arm",
     "assembly",
     "c++",
+    "calculus",
     "clang",
     "clojure",
     "code",
@@ -51,6 +53,7 @@ search_terms = [
     "coffeescript",
     "directx",
     "erlang",
+    "geometry",
     "glsl",
     "haskell",
     "java",
@@ -59,6 +62,7 @@ search_terms = [
     "jvm",
     "llvm",
     "lua",
+    "math",
     "node"
     "ocaml",
     "objective-c",
@@ -72,6 +76,7 @@ search_terms = [
     "smalltalk",
     "standardml",
     "sql",
+    "trigonometry",
     "x86",
     "xul",
 ]
