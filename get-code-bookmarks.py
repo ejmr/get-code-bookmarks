@@ -57,6 +57,7 @@ search_terms = [
     "geometry",
     "glsl",
     "haskell",
+    "http",
     "java",
     "javascript",
     "jdk",
