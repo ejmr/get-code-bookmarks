@@ -54,6 +54,8 @@ search_terms = [
     "database",
     "directx",
     "erlang",
+    "factor",
+    "forth",
     "framework",
     "geometry",
     "glsl",
