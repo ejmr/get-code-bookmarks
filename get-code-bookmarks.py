@@ -59,6 +59,7 @@ search_terms = [
     "framework",
     "geometry",
     "glsl",
+    "gnu",
     "haskell",
     "http",
     "java",
