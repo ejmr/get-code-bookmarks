@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-get-code-bookmarks <path/to/places.sqlite>
+get-code-bookmarks.py [-h] [--terms TERMS ...] [--markdown] database
 
 This program tries to extract all of the programming-related bookmarks
 from Firefox, or browsers based on the same platform (e.g. Conkeror).
