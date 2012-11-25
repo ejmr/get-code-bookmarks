@@ -108,10 +108,15 @@ def build_search_query(terms):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
     parser.add_argument("database", type=str, help="Location of places.sqlite file")
+    parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
     arguments = parser.parse_args()
 
     database = sqlite3.connect(arguments.database)
-    terms = search_terms
+
+    if len(arguments.terms) > 0:
+        terms = arguments.terms
+    else:
+        terms = search_terms
 
     try:
         results = database.cursor().execute(build_search_query(terms))
