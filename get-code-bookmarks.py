@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-"""
-get-code-bookmarks.py [-h] [--terms TERMS ...] [--markdown] database
+"""get-code-bookmarks.py [-h] [--terms TERMS ...] [--markdown] database
 
 This program tries to extract all of the programming-related bookmarks
 from Firefox, or browsers based on the same platform (e.g. Conkeror).
@@ -18,6 +17,10 @@ for pasting into an email.  That is the reason I wrote this program,
 to easily share all of my programming-related bookmarks with friends
 and fellow coders on a mailing list.
 
+The other command-line options are described in the `README.md` file
+that should accompany this program.  If you do not have it then you
+may find the README at the website for the program, listed below.
+
 Here is a useful diagram for understanding the database structure used
 by the browser:
 
@@ -28,6 +31,7 @@ Author: Eric James Michael Ritz
         https://github.com/ejmr/get-code-bookmarks
 
 This code is Public Domain.
+
 """
 
 import argparse
