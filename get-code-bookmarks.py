@@ -30,6 +30,7 @@ Author: Eric James Michael Ritz
 This code is Public Domain.
 """
 
+import argparse
 import sys
 import sqlite3
 
@@ -105,11 +106,11 @@ def build_search_query():
     return base_query + " where " + " or ".join(where_clauses) + ";";
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
+    parser.add_argument("database", type=str, help="Location of places.sqlite file")
+    arguments = parser.parse_args()
 
-    if len(sys.argv) < 2:
-        sys.exit("Missing required argument: Path to places.sqlite file");
-
-    database = sqlite3.connect(sys.argv[1])
+    database = sqlite3.connect(arguments.database)
 
     try:
         results = database.cursor().execute(build_search_query())
