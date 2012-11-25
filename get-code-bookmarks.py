@@ -109,6 +109,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
     parser.add_argument("database", type=str, help="Location of places.sqlite file")
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
+    parser.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
     arguments = parser.parse_args()
 
     database = sqlite3.connect(arguments.database)
@@ -124,4 +125,7 @@ if __name__ == "__main__":
         sys.exit("Error: {0} does not look like a valid places.sqlite file".format(sys.argv[1]))
 
     for row in sorted(results, key=itemgetter(0)):
-        print("{0}\n\t{1}\n".format(row[0], row[1]))
+        if arguments.markdown is True:
+            print("[{0}]({1})\n".format(row[0], row[1]))
+        else:
+            print("{0}\n\t{1}\n".format(row[0], row[1]))
