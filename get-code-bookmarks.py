@@ -126,7 +126,7 @@ if __name__ == "__main__":
     try:
         results = database.cursor().execute(build_search_query(terms))
     except sqlite3.OperationalError:
-        sys.exit("Error: {0} does not look like a valid places.sqlite file".format(sys.argv[1]))
+        sys.exit("Error: {0} does not look like a valid places.sqlite file".format(arguments.database))
 
     for row in sorted(results, key=itemgetter(0)):
         if arguments.markdown is True:
