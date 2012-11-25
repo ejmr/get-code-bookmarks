@@ -30,6 +30,7 @@ Author: Eric James Michael Ritz
 This code is Public Domain.
 """
 
+import argparse
 import sys
 import sqlite3
 
@@ -88,33 +89,43 @@ search_terms = [
     "xul",
 ]
 
-def build_search_query():
-    """Returns a string which is the search query for finding
-    bookmarks.  It incorporates all of the `search_terms` we have
-    defined above.  We can give the return value of this function
-    directly to the execute() function of the database.  The query
-    will select two columns: 'title' and 'url'.
+def build_search_query(terms):
+    """Returns a string which is the search query for finding bookmarks.
+    The function searches through the list of `terms` that we pass to
+    it.  We can give the return value of this function directly to the
+    execute() function of the database.  The query will select two
+    columns: 'title' and 'url'.
     """
     base_query = "select moz_bookmarks.title, moz_places.url \
                   from moz_bookmarks \
                   join moz_places on moz_bookmarks.fk = moz_places.id"
 
     where_clauses = ["moz_bookmarks.title like '%{0}%' or moz_places.url like '%{0}%'".format(term)
-                     for term in search_terms]
+                     for term in terms]
 
     return base_query + " where " + " or ".join(where_clauses) + ";";
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
+    parser.add_argument("database", type=str, help="Location of places.sqlite file")
+    parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
+    parser.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
+    arguments = parser.parse_args()
 
-    if len(sys.argv) < 2:
-        sys.exit("Missing required argument: Path to places.sqlite file");
+    database = sqlite3.connect(arguments.database)
 
-    database = sqlite3.connect(sys.argv[1])
+    if len(arguments.terms) > 0:
+        terms = arguments.terms
+    else:
+        terms = search_terms
 
     try:
-        results = database.cursor().execute(build_search_query())
+        results = database.cursor().execute(build_search_query(terms))
     except sqlite3.OperationalError:
         sys.exit("Error: {0} does not look like a valid places.sqlite file".format(sys.argv[1]))
 
     for row in sorted(results, key=itemgetter(0)):
-        print("{0}\n\t{1}\n".format(row[0], row[1]))
+        if arguments.markdown is True:
+            print("[{0}]({1})\n".format(row[0], row[1]))
+        else:
+            print("{0}\n\t{1}\n".format(row[0], row[1]))
