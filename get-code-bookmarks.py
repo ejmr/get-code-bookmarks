@@ -114,6 +114,7 @@ if __name__ == "__main__":
     parser.add_argument("database", type=str, help="Location of places.sqlite file")
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
     parser.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
+    parser.add_argument("--bbcode", default=False, action="store_true", help="Format the output using BBCode")
     arguments = parser.parse_args()
 
     database = sqlite3.connect(arguments.database)
