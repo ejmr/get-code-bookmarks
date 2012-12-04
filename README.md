@@ -51,6 +51,13 @@ instead:
 
     [Bookmark Title](URL for the Bookmark)
 
+Or you can use the `--bbcode` option  to get output like:
+
+    [url=Bookmar Title]URL for the Bookmark[/url]
+
+The `--normal` option produces the default output, but it is not
+necessary to use that argument except when you need to be explicit.
+The three output options are mutually exclusive.
 
 
 License
