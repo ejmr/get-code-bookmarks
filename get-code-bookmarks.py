@@ -115,6 +115,7 @@ if __name__ == "__main__":
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
 
     output = parser.add_mutually_exclusive_group()
+    output.add_argument("--normal", default=True, action="store_true", help="Format the output as title then link")
     output.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
     output.add_argument("--bbcode", default=False, action="store_true", help="Format the output using BBCode")
 
