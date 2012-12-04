@@ -32,7 +32,7 @@ Author: Eric James Michael Ritz
         lobbyjones@gmail.com
         https://github.com/ejmr/get-code-bookmarks
 
-This code is Public Domain.
+License: GPLv3
 
 """
 

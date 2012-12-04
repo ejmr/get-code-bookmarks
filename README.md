@@ -63,4 +63,4 @@ The three output options are mutually exclusive.
 License
 -------
 
-Public Domain
+[GNU General Public License Version 3](http://www.gnu.org/copyleft/gpl.html)
