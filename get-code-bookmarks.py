@@ -113,8 +113,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
     parser.add_argument("database", type=str, help="Location of places.sqlite file")
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
-    parser.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
-    parser.add_argument("--bbcode", default=False, action="store_true", help="Format the output using BBCode")
+
+    output = parser.add_mutually_exclusive_group()
+    output.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
+    output.add_argument("--bbcode", default=False, action="store_true", help="Format the output using BBCode")
+
     arguments = parser.parse_args()
 
     database = sqlite3.connect(arguments.database)
