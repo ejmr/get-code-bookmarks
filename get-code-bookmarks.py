@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-"""get-code-bookmarks.py [-h] [--terms TERMS ...] [--markdown] database
+"""get-code-bookmarks.py [-h] [--terms [TERMS [TERMS ...]]]
+                         [--normal | --markdown | --bbcode]
+                         database
 
 This program tries to extract all of the programming-related bookmarks
 from Firefox, or browsers based on the same platform (e.g. Conkeror).
@@ -113,7 +115,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
     parser.add_argument("database", type=str, help="Location of places.sqlite file")
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
-    parser.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
+
+    output = parser.add_mutually_exclusive_group()
+    output.add_argument("--normal", default=True, action="store_true", help="Format the output as title then link")
+    output.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
+    output.add_argument("--bbcode", default=False, action="store_true", help="Format the output using BBCode")
+
     arguments = parser.parse_args()
 
     database = sqlite3.connect(arguments.database)
@@ -131,5 +138,7 @@ if __name__ == "__main__":
     for row in sorted(results, key=itemgetter(0)):
         if arguments.markdown is True:
             print("[{0}]({1})\n".format(row[0], row[1]))
-        else:
+        elif arguments.bbcode is True:
+            print("[url={1}]{0}[/url]".format(row[0], row[1]))
+        elif arguments.normal is True:
             print("{0}\n\t{1}\n".format(row[0], row[1]))
