@@ -136,5 +136,5 @@ if __name__ == "__main__":
     for row in sorted(results, key=itemgetter(0)):
         if arguments.markdown is True:
             print("[{0}]({1})\n".format(row[0], row[1]))
-        else:
+        elif arguments.normal is True:
             print("{0}\n\t{1}\n".format(row[0], row[1]))
