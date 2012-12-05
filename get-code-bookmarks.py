@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""get-code-bookmarks.py [-h] [--terms [TERMS [TERMS ...]]]
+"""get-code-bookmarks.py [-h] [-v] [--terms [TERMS [TERMS ...]]]
                          [--normal | --markdown | --bbcode]
                          database
 
@@ -41,6 +41,8 @@ import sys
 import sqlite3
 
 from operator import itemgetter
+
+VERSION = 1.0
 
 # This is a list of terms we search for in bookmark titles and URLs to
 # try and find relevant links to share.
@@ -114,6 +116,7 @@ def build_search_query(terms):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
     parser.add_argument("database", type=str, help="Location of places.sqlite file")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s {0}".format(VERSION))
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
 
     output = parser.add_mutually_exclusive_group()
