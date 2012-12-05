@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-"""get-code-bookmarks.py [-h] [-v] [--terms [TERMS [TERMS ...]]]
-                         [--normal | --markdown | --bbcode]
-                         database
+"""
+get-code-bookmarks.py [-h] [-v] [--terms [TERMS [TERMS ...]]]
+                      [-o {normal,markdown,bbcode}]
+                      database
 
 This program tries to extract all of the programming-related bookmarks
 from Firefox, or browsers based on the same platform (e.g. Conkeror).
@@ -118,11 +119,9 @@ if __name__ == "__main__":
     parser.add_argument("database", type=str, help="Location of places.sqlite file")
     parser.add_argument("-v", "--version", action="version", version="%(prog)s {0}".format(VERSION))
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
-
-    output = parser.add_mutually_exclusive_group()
-    output.add_argument("--normal", default=True, action="store_true", help="Format the output as title then link")
-    output.add_argument("--markdown", default=False, action="store_true", help="Format the output in Markdown")
-    output.add_argument("--bbcode", default=False, action="store_true", help="Format the output using BBCode")
+    parser.add_argument("-o", "--output", type=str, default="normal",
+                        choices=["normal", "markdown", "bbcode"],
+                        help="The output format for the links")
 
     arguments = parser.parse_args()
 
@@ -139,9 +138,9 @@ if __name__ == "__main__":
         sys.exit("Error: {0} does not look like a valid places.sqlite file".format(arguments.database))
 
     for row in sorted(results, key=itemgetter(0)):
-        if arguments.markdown is True:
+        if arguments.output == "markdown":
             print("[{0}]({1})\n".format(row[0], row[1]))
-        elif arguments.bbcode is True:
+        elif arguments.output == "bbcode":
             print("[url={1}]{0}[/url]".format(row[0], row[1]))
-        elif arguments.normal is True:
+        elif arguments.output == "normal":
             print("{0}\n\t{1}\n".format(row[0], row[1]))

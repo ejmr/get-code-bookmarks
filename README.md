@@ -46,18 +46,16 @@ The default output format looks like this:
     Bookmark Title
         <URL for the Bookmark>
 
-If you provide the `--markdown` option the output will look like this
-instead:
+You can use `-o`, or the longer `--output` option, to change the
+output format.  Using `-o markdown` displays each link in this form:
 
     [Bookmark Title](URL for the Bookmark)
 
-Or you can use the `--bbcode` option  to get output like:
+Or you can use `-o bbcode` to format the links as:
 
     [url=Bookmar Title]URL for the Bookmark[/url]
 
-The `--normal` option produces the default output, but it is not
-necessary to use that argument except when you need to be explicit.
-The three output options are mutually exclusive.
+In the absence of `-o` the program defaults to `-o normal`.
 
 
 License
