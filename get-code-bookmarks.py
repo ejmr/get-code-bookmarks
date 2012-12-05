@@ -141,6 +141,6 @@ if __name__ == "__main__":
         if arguments.output == "markdown":
             print("[{0}]({1})\n".format(row[0], row[1]))
         elif arguments.output == "bbcode":
-            print("[url={1}]{0}[/url]".format(row[0], row[1]))
+            print("[url={1}]{0}[/url]\n".format(row[0], row[1]))
         elif arguments.output == "normal":
             print("{0}\n\t{1}\n".format(row[0], row[1]))
