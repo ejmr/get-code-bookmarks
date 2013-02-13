@@ -59,7 +59,9 @@ Or use `-o html` to format the links as:
 
     <a href="URL for the Bookmark">Bookmark Title</a>
 
-In the absence of `-o` the program defaults to `-o normal`.
+In the absence of `-o` the program defaults to `-o normal`.  Run the
+program with the `--help` option to see all of the other parameters
+you can use.
 
 
 License
