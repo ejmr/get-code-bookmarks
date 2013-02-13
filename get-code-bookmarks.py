@@ -131,7 +131,7 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--version", action="version", version="%(prog)s {0}".format(VERSION))
     parser.add_argument("--terms", nargs="*", type=str, default=[], help="Specific terms to search for in bookmarks")
     parser.add_argument("-o", "--output", type=str, default="normal",
-                        choices=["normal", "markdown", "bbcode"],
+                        choices=["normal", "markdown", "bbcode", "html"],
                         help="The output format for the links")
 
     arguments = parser.parse_args()
@@ -153,5 +153,7 @@ if __name__ == "__main__":
             print("[{0}]({1})\n".format(row[0], row[1]))
         elif arguments.output == "bbcode":
             print("[url={1}]{0}[/url]\n".format(row[0], row[1]))
+        elif arguments.output == "html":
+            print("<a href=\"{1}\">{0}</a>".format(row[0], row[1]))
         elif arguments.output == "normal":
             print("{0}\n\t{1}\n".format(row[0], row[1]))

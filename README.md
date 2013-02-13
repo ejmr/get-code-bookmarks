@@ -55,6 +55,10 @@ Or you can use `-o bbcode` to format the links as:
 
     [url=Bookmar Title]URL for the Bookmark[/url]
 
+Or use `-o html` to format the links as:
+
+    <a href="URL for the Bookmark">Bookmark Title</a>
+
 In the absence of `-o` the program defaults to `-o normal`.
 
 
