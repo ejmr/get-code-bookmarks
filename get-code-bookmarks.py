@@ -41,7 +41,7 @@ import sqlite3
 
 from operator import itemgetter
 
-VERSION = 1.0
+VERSION = 2.0
 
 # This is a list of terms we search for in bookmark titles and URLs to
 # try and find relevant links to share.
