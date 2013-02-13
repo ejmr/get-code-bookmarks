@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
 """
-get-code-bookmarks.py [-h] [-v] [--terms [TERMS [TERMS ...]]]
-                      [-o {normal,markdown,bbcode}]
-                      database
+get-code-bookmarks.py
 
 This program tries to extract all of the programming-related bookmarks
 from Firefox, or browsers based on the same platform (e.g. Conkeror).
