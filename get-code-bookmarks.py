@@ -143,10 +143,11 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output", type=str, default="normal",
                         choices=["normal", "markdown", "bbcode", "html"],
                         help="The output format for the links")
+    parser.add_argument("-c", "--count", action="store_true", help="Prints a count of the bookmarks")
 
     arguments = parser.parse_args()
-
     database = sqlite3.connect(arguments.database)
+    bookmark_count = 0
 
     if len(arguments.terms) > 0:
         terms = arguments.terms
@@ -154,11 +155,12 @@ if __name__ == "__main__":
         terms = search_terms
 
     try:
-        results = database.cursor().execute(build_search_query(terms))
+        query = database.cursor()
     except sqlite3.OperationalError:
         sys.exit("Error: {0} does not look like a valid places.sqlite file".format(arguments.database))
 
-    for row in sorted(results, key=itemgetter(0)):
+    for row in sorted(query.execute(build_search_query(terms)), key=itemgetter(0)):
+        bookmark_count = bookmark_count + 1
         if arguments.output == "markdown":
             print("[{0}]({1})\n".format(row[0], row[1]))
         elif arguments.output == "bbcode":
@@ -167,3 +169,6 @@ if __name__ == "__main__":
             print("<a href=\"{1}\">{0}</a>".format(row[0], row[1]))
         elif arguments.output == "normal":
             print("{0}\n\t{1}\n".format(row[0], row[1]))
+
+    if arguments.count == True:
+        print("Total Bookmarks: {0}".format(bookmark_count))
