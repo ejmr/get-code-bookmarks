@@ -108,6 +108,7 @@ search_terms = [
     "rust",
     "sdl",
     "shader",
+    "shell",
     "smalltalk",
     "sourceforge",
     "sql",
