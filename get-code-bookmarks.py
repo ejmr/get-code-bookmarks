@@ -104,6 +104,7 @@ search_terms = [
     "program",
     "python",
     "qt",
+    "redis",
     "ruby",
     "rust",
     "sdl",
