@@ -80,6 +80,7 @@ search_terms = [
     "gnome",
     "gnu",
     "golang",
+    "guile",
     "haskell",
     "html",
     "http",
