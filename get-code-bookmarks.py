@@ -71,6 +71,7 @@ search_terms = [
     "darcs",
     "database",
     "directx",
+    "dos",
     "emacs",
     "erlang",
     "factor",
