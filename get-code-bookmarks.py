@@ -124,6 +124,7 @@ search_terms = [
     "standardml",
     "subversion",
     "svn",
+    "tex",
     "trigonometry",
     "unix",
     "vim",
