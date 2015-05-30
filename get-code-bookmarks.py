@@ -28,7 +28,7 @@ by the browser:
     http://people.mozilla.org/~dietrich/places-erd.png
 
 Author: Eric James Michael Ritz
-        lobbyjones@gmail.com
+        ejmr@plutono.com
         https://github.com/ejmr/get-code-bookmarks
 
 License: GPLv3
@@ -41,7 +41,7 @@ import sqlite3
 
 from operator import itemgetter
 
-VERSION = "2.1.2"
+VERSION = "2.2.0"
 
 # This is a list of terms we search for in bookmark titles and URLs to
 # try and find relevant links to share.
