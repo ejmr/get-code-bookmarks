@@ -193,4 +193,4 @@ if __name__ == "__main__":
         print("</ul>")
 
     if arguments.count == True:
-        print("Total Bookmarks: {0}".format(bookmark_count))
+        print("Total Bookmarks: {0}".format(bookmark_count), file=sys.stderr)
