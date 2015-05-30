@@ -175,6 +175,9 @@ if __name__ == "__main__":
     except sqlite3.OperationalError:
         sys.exit("Error: {0} does not look like a valid places.sqlite file".format(arguments.database))
 
+    if arguments.output == "html":
+        print("<ul>")
+
     for row in sorted(query.execute(build_search_query(terms)), key=itemgetter(0)):
         bookmark_count = bookmark_count + 1
         if arguments.output == "markdown":
@@ -182,9 +185,12 @@ if __name__ == "__main__":
         elif arguments.output == "bbcode":
             print("[url={1}]{0}[/url]\n".format(row[0], row[1]))
         elif arguments.output == "html":
-            print("<a href=\"{1}\">{0}</a>".format(row[0], row[1]))
+            print("<li><a href=\"{1}\">{0}</a></li>".format(row[0], row[1]))
         elif arguments.output == "normal":
             print("{0}\n\t{1}\n".format(row[0], row[1]))
+
+    if arguments.output == "html":
+        print("</ul>")
 
     if arguments.count == True:
         print("Total Bookmarks: {0}".format(bookmark_count))
