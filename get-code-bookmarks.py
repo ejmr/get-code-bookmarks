@@ -149,7 +149,7 @@ def build_search_query(terms):
     where_clauses = ["moz_bookmarks.title like '%{0}%' or moz_places.url like '%{0}%'".format(term)
                      for term in terms]
 
-    return base_query + " where " + " or ".join(where_clauses) + ";";
+    return base_query + " where " + " or ".join(where_clauses) + ";"
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Lists programming bookmarks.")
