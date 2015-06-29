@@ -41,7 +41,7 @@ import sqlite3
 
 from operator import itemgetter
 
-VERSION = "2.2.0"
+VERSION = "2.3.0"
 
 # This is set in the main logic.
 arguments = None
