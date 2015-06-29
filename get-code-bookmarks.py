@@ -43,6 +43,9 @@ from operator import itemgetter
 
 VERSION = "2.2.0"
 
+# This is set in the main logic.
+arguments = None
+
 # This is a list of terms we search for in bookmark titles and URLs to
 # try and find relevant links to share.
 search_terms = [
@@ -149,8 +152,12 @@ def build_search_query(terms):
                   from moz_bookmarks \
                   join moz_places on moz_bookmarks.fk = moz_places.id"
 
-    where_clauses = ["moz_bookmarks.title like '%{0}%' or moz_places.url like '%{0}%'".format(term)
-                     for term in terms]
+    if arguments.title_only == True:
+        where_clauses = ["moz_bookmarks.title like '%{0}%'".format(term)
+                         for term in terms]
+    else:
+        where_clauses = ["moz_bookmarks.title like '%{0}%' or moz_places.url like '%{0}%'".format(term)
+                         for term in terms]
 
     return base_query + " where " + " or ".join(where_clauses) + ";"
 
@@ -163,6 +170,7 @@ if __name__ == "__main__":
                         choices=["normal", "markdown", "bbcode", "html"],
                         help="The output format for the links")
     parser.add_argument("-c", "--count", action="store_true", help="Prints a count of the bookmarks")
+    parser.add_argument("--title-only", action="store_true", help="Search only bookmark titles, not URLs")
 
     arguments = parser.parse_args()
     database = sqlite3.connect(arguments.database)
