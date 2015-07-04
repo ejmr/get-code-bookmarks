@@ -133,6 +133,7 @@ search_terms = [
     "standardml",
     "subversion",
     "svn",
+    "swift",
     "tex",
     "trigonometry",
     "unix",
