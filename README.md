@@ -64,6 +64,20 @@ program with the `--help` option to see all of the other parameters
 you can use.
 
 
+Unicode Errors
+--------------
+
+If you get an error like the following...
+
+```
+UnicodeEncodeError: 'ascii' codec can't encode character '\xa0' in position 9: ...
+```
+
+...then set your `PYTHONIOENCODING` environment variable to `"utf-8"`,
+either globally for your shell or locally for specifically running
+this program, in which case a small shell-script wrapper may be useful.
+
+
 License
 -------
 
